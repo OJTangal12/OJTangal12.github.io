@@ -1,1 +1,290 @@
-<h1> Hello World </h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OJ - Personal Portfolio</title>
+    <!-- Google Fonts: Poppins for headings, Open Sans for body -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons (optional, but used for social links) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* CSS Variables */
+        :root {
+            --midnight-blue: #0B1E33;
+            --constellation-gold: #FFCF40;
+            --soft-white: #F8F9FA;
+            --accent-teal: #29C6B7;
+            --text-dark: #333333;
+            --text-light: #F8F9FA;
+            --font-heading: 'Poppins', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+        }
+
+        /* Basic Reset & Global Styles */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--soft-white);
+            padding-top: 70px; /* Space for fixed header */
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 0.75em;
+            color: var(--midnight-blue);
+        }
+        h1 { font-size: 2.5rem; color: var(--text-light); }
+        h2 { font-size: 2rem; margin-top: 40px; text-align: center; }
+        h3 { font-size: 1.5rem; color: var(--accent-teal); }
+
+        p { margin-bottom: 1em; }
+        a { color: var(--accent-teal); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* Header */
+        .site-header {
+            background-color: var(--midnight-blue);
+            color: var(--soft-white);
+            padding: 0 1em;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            height: 70px;
+            display: flex;
+            align-items: center;
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between; /* Changed for potential nav items later */
+            align-items: center;
+            width: 100%;
+        }
+        .logo a {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--constellation-gold);
+        }
+        /* Basic Nav (can be expanded) */
+        .main-nav ul { list-style: none; display: flex; }
+        .main-nav li { margin-left: 20px; }
+        .main-nav a { color: var(--soft-white); font-weight: 600; }
+
+
+        /* Sections */
+        .section {
+            padding: 40px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .section:last-child { border-bottom: none; }
+
+        /* Hero Section (Home) */
+        .hero-section {
+            background-color: var(--midnight-blue);
+            color: var(--soft-white);
+            text-align: center;
+            padding: 60px 20px; /* Adjusted padding */
+            min-height: calc(60vh - 70px); /* Adjusted height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero-section h1 {
+            font-size: 2.2rem; /* Slightly smaller for simplicity */
+            margin-bottom: 30px;
+        }
+
+        /* Call to Action Button */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--constellation-gold);
+            color: var(--midnight-blue);
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: 2px solid var(--constellation-gold);
+        }
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--constellation-gold);
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+
+        /* About Section */
+        .about-section .container, .contact-section .container {
+            text-align: center;
+        }
+        .about-section img.profile-photo-placeholder { /* Placeholder for photo */
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #ccc;
+            margin: 0 auto 20px auto;
+            display: block;
+            /* Replace with your actual photo: <img src="your-photo.jpg" alt="OJ"> */
+        }
+
+
+        /* Contact Section / Footer */
+        .contact-section {
+            background-color: #f4f4f4; /* Lighter background for footer */
+        }
+        .social-links {
+            margin: 20px 0;
+        }
+        .social-links a {
+            font-size: 1.8rem;
+            color: var(--midnight-blue);
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        .social-links a:hover {
+            color: var(--accent-teal);
+        }
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body { padding-top: 60px; } /* Adjust for potentially smaller header */
+            .site-header { height: 60px; }
+            .hero-section h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.7rem; }
+            .main-nav { display: none; } /* Simplification: hide nav on mobile if not fully implemented */
+        }
+        @media (max-width: 480px) {
+            .hero-section h1 { font-size: 1.6rem; }
+            .cta-button { padding: 10px 20px; font-size: 0.9rem; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container header-container">
+            <div class="logo"><a href="#">OJ.</a></div>
+            <!-- Basic Navigation (can be hidden on mobile via CSS if too simple) -->
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="hero-section">
+            <h1>“I believe every growth-driven person deserves an inner compass that stays true when life changes fast.”</h1>
+            <!-- Link this button to your Calendly or email -->
+            <a href="mailto:your.email@example.com?subject=Rapid-Direction Session Booking" class="cta-button">Book a Rapid-Direction Session</a>
+            <!-- Comment: Replace your.email@example.com with your actual email address -->
+        </section>
+
+        <!-- About OJ Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <h2>About OJ</h2>
+                <!-- Placeholder for photo - you can replace this div with an <img> tag -->
+                <!-- <img src="path/to/your-photo.jpg" alt="Photo of OJ" class="profile-photo-placeholder"> -->
+                <div class="profile-photo-placeholder" title="Replace this with your photo">Your Photo Here</div>
+                <p>I am a Turkish HRM student with a keen eye for patterns and a passion for helping individuals find their unique direction. My journey has equipped me with tools and insights to support growth-driven people in navigating the complexities of life, especially during transitions like international studies.</p>
+                <p><em>(Add more about yourself here!)</em></p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <h2>Get in Touch</h2>
+                <p>Ready to find your true north or have a question? Contact me!</p>
+                <a href="mailto:your.email@example.com?subject=Inquiry from Portfolio Site" class="cta-button" style="background-color: var(--accent-teal); color: var(--soft-white); border-color: var(--accent-teal);">Email Me</a>
+                <!-- Comment: Replace your.email@example.com with your actual email address -->
+                
+                <div class="social-links">
+                    <!-- Replace # with your actual profile URLs -->
+                    <a href="https://github.com/your-github-username" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/your-linkedin-profile" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+                <p class="copyright">&copy; <span id="current-year"></span> OJ. All rights reserved.</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Update Copyright Year
+        const currentYearSpan = document.getElementById('current-year');
+        if (currentYearSpan) {
+            currentYearSpan.textContent = new Date().getFullYear();
+        }
+
+        // Smooth scroll for internal links (if nav is used)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                // Check if the link is just '#' (logo link) or has a valid target
+                const href = this.getAttribute('href');
+                if (href === '#') { // For logo link to top
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    return;
+                }
+
+                const targetId = href.substring(1); // remove the '#'
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    e.preventDefault();
+                    const headerOffset = 70; // Height of fixed header
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
