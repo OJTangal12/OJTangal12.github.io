@@ -153,6 +153,16 @@
             /* Replace with your actual photo: <img src="your-photo.jpg" alt="OJ"> */
         }
 
+        /* === CSS FOR YOUR EVENT IMAGE - START === */
+        .event-image {
+            max-width: 600px;  /* Adjust 600px to your desired max width */
+            width: 100%;       /* Makes it responsive within its container, up to max-width */
+            height: auto;      /* Keeps the image's proportions correct */
+            display: block;    /* Helps with centering and spacing */
+            margin: 20px auto; /* Adds some space above/below and centers it */
+            border-radius: 8px;/* Optional: nice rounded corners */
+        }
+        /* === CSS FOR YOUR EVENT IMAGE - END === */
 
         /* Contact Section / Footer */
         .contact-section {
@@ -228,7 +238,10 @@
             </div>
         </section>
 
-        <img> "Event_image.jpeg"
+	    <section class="section"> <!-- Added class="section" for consistent spacing/border -->
+		     <img src="Event_image.jpeg" class="event-image" alt="Description of your event image" /> <!-- MODIFIED: Added class and alt text -->
+	    </section>
+       
         <!-- Contact Section -->
         <section id="contact" class="section contact-section">
             <div class="container">
